@@ -1,0 +1,77 @@
+:root {
+
+    /* color styles */
+    --off-white: hsl(220, 100%, 99%);
+    --text-sec: hsl(210, 2%, 84%);
+    --text-sec-dark: hsl(0, 0%, 59%);
+    --text-sec-darker: hsl(0, 0%, 29%);
+    --text-sec-darkest: hsl(0, 0%, 17%);
+    --text-sec-xtradark: hsl(0, 0%, 10%);
+
+    --off-black: hsl(240, 100%, 2%);
+    --text-sec2: hsl(240, 100%, 5%);
+    --text-sec2-light: hsl(240, 100%, 10%);
+    --text-sec2-lighter: hsl(240, 100%, 15%);
+    --text-sec2-lightest: hsl(240, 100%, 20%);
+    --text-sec2-verylight: hsl(240, 100%, 25%);
+
+
+    --accent-color: hsl(234, 100%, 56%);
+    --accent-color-light: hsl(234, 100%, 66%);
+    --accent-color-lighter: hsl(234, 100%, 76%);
+    --accent-color-lightest: hsl(212, 100%, 75%);
+    --accent-color2: hsl(98, 100%, 55%);
+
+
+    /* typography styles */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-16: 1rem;
+    --font-size-18: 1.125rem;
+    --font-size-20: 1.25rem;
+    --font-size-24: 1.5rem;
+    --font-size-32: 2rem;
+    --font-size-40: 2.5rem;
+    --font-size-48: 3rem;
+    --font-size-56: 3.5rem;
+    --font-size-64: 4rem;
+    --font-size-72: 4.5rem;
+
+
+    /* responsive clamp typography styles 1440px screen to 320px screen*/
+    --font-clamp14to12: clamp(0.75rem, 0.6964rem + 0.2679vw, 0.875rem);
+    --font-clamp16to14: clamp(0.875rem, 0.8393rem + 0.1786vw, 1rem);
+    --font-clamp18to16: clamp(1rem, 0.9643rem + 0.1786vw, 1.125rem);
+    --font-clamp20to16: clamp(1rem, 0.9286rem + 0.3571vw, 1.25rem);
+    --font-clamp24to18: clamp(1.125rem, 1.0179rem + 0.5357vw, 1.5rem);
+    --font-clamp32to20: clamp(1.25rem, 1.0357rem + 1.0714vw, 2rem);
+    --font-clamp40to24: clamp(1.5rem, 1.2143rem + 1.4286vw, 2.5rem);
+    --font-clamp48to32: clamp(2rem, 1.7143rem + 1.4286vw, 3rem);
+    --font-clamp72to56: clamp(3.5rem, 2.75rem + 3.75vw, 4.5rem);
+    --font-clamp72to44: clamp(2.75rem, 2.25rem + 2.5vw, 4.5rem);
+    --font-clamp72to32: clamp(2rem, 1.2857rem + 3.5714vw, 4.5rem);
+
+
+    /* layout styles 1440px screen to 320px screen*/
+    --padding-clamp32to16: clamp(1rem, 0.7143rem + 1.4286vw, 2rem);
+    --padding-clamp32to8: clamp(0.5rem, 0.0714rem + 2.1429vw, 2rem);
+    --padding-clamp32to0: clamp(0rem, -0.5714rem + 2.8571vw, 2rem);
+    --padding-clamp72to16: clamp(2.25rem, 1.2143rem + 5.3571vw, 4.5rem);
+    --padding-clamp16to8: clamp(0.5rem, 0.0714rem + 2.1429vw, 1rem);
+    --section-padding-clamp172to80: clamp(5rem, 2.5rem + 12.5vw, 10.75rem);
+    --section-padding-clamp120to60: clamp(3.75rem, 2.6786rem + 5.3571vw, 7.5rem);
+    --cta-clamp120to60: clamp(3.75rem, 2.6786rem + 5.3571vw, 7.5rem);
+    --border-clamp100to12: clamp(0.75rem, -0.8214rem + 7.8571vw, 6.25rem);
+    --border-clamp100to20: clamp(1.25rem, -0.1786rem + 7.1429vw, 6.25rem);
+    --width-clamp260to180: clamp(12.5rem, 11.4286rem + 5.3571vw, 16.25rem);
+    --width-clamp720to280: clamp(17.5rem, 9.6429rem + 39.2857vw, 45rem);
+
+
+    /* kerning */
+    --heading-kern: -2.5px;
+    --heading-kern2: -1.8px;
+
+
+    /* animation styles */
+    --no-of-logos: 6;
+}
