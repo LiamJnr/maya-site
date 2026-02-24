@@ -48,30 +48,106 @@ export function parallaxSlide() {
 }
 
 
+// export function fluidStack() {
+//     const stack = document.querySelector(".stack--block");
+//     const cards = Array.from(document.querySelectorAll(".stack--item"));
+
+//     const baseY = -40;
+//     const stepY = 15;
+
+//     function applyStack() {
+//         cards.forEach((card, i) => {
+//             const y = baseY - (i * stepY);
+
+//             const depthFactor = 0.12;
+
+//             const scale = 1 / (1 + i * depthFactor);
+
+//             card.style.transform = `
+//       translate(-50%, ${y}%)
+//       scale(${scale})
+//     `;
+
+//             card.style.zIndex = cards.length - i;
+//         });
+//     }
+
+//     applyStack();
+
+//     function rotateStack() {
+//         const first = cards.shift();
+//         cards.push(first);
+//         applyStack();
+//     }
+
+//     stack.addEventListener("click", rotateStack);
+// }
+
+
 export function fluidStack() {
-    const cardsContainer = document.querySelector('.stack--block');
-    if (!cardsContainer) return;
-    const cards = cardsContainer.querySelectorAll('.stack--item');
+    const stack = document.querySelector(".stack--block");
+    const cards = Array.from(document.querySelectorAll(".stack--item"));
 
-    // Default positions (matching CSS)
-    const resetStyles = [
-        { el: '.s-one', transform: 'translate(-50%, -40%) scale(1)' },
-        { el: '.s-two', transform: 'translate(-50%, -60%) scale(0.92)' },
-        { el: '.s-three', transform: 'translate(-50%, -75%) scale(0.84)' }
-    ];
+    if (!stack || !cards.length) return;
 
-    cardsContainer.addEventListener('mouseenter', () => {
+    const N = cards.length;
+
+    const baseY = -40;
+    const stepY = 15;
+    const depthFactor = 0.12;
+
+    let time = 0;
+    let speed = 0.008; // lower = slower
+    let rafId = null;
+    let isInView = false;
+
+    // ----------------------------
+    // Core animation loop
+    // ----------------------------
+    function animate() {
+        time += speed;
+
         cards.forEach((card, i) => {
-            // Fanning effect: Shift each card down and slightly scale them
-            // Using i * 40px to create staggered vertical offsets
-            card.style.transform = `translate(-50%, calc(-50% + ${i * 50}px)) scale(${1 - i * 0.05})`;
-        });
-    });
 
-    cardsContainer.addEventListener('mouseleave', () => {
-        resetStyles.forEach(style => {
-            const el = cardsContainer.querySelector(style.el);
-            if (el) el.style.transform = style.transform;
+            // Infinite modular depth
+            let depth = (i - time) % N;
+            if (depth < 0) depth += N;
+
+            const y = baseY - depth * stepY;
+            const scale = 1 / (1 + depth * depthFactor);
+
+            card.style.transform = `
+                translate(-50%, ${y}%)
+                scale(${scale})
+            `;
+
+            card.style.zIndex = N - Math.floor(depth);
         });
-    });
+
+        if (isInView) {
+            rafId = requestAnimationFrame(animate);
+        }
+    }
+
+    // ----------------------------
+    // Intersection Observer
+    // ----------------------------
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (!isInView) {
+                        isInView = true;
+                        animate();
+                    }
+                } else {
+                    isInView = false;
+                    cancelAnimationFrame(rafId);
+                }
+            });
+        },
+        { threshold: 0.2 }
+    );
+
+    observer.observe(stack);
 }
