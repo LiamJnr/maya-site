@@ -48,42 +48,6 @@ export function parallaxSlide() {
 }
 
 
-// export function fluidStack() {
-//     const stack = document.querySelector(".stack--block");
-//     const cards = Array.from(document.querySelectorAll(".stack--item"));
-
-//     const baseY = -40;
-//     const stepY = 15;
-
-//     function applyStack() {
-//         cards.forEach((card, i) => {
-//             const y = baseY - (i * stepY);
-
-//             const depthFactor = 0.12;
-
-//             const scale = 1 / (1 + i * depthFactor);
-
-//             card.style.transform = `
-//       translate(-50%, ${y}%)
-//       scale(${scale})
-//     `;
-
-//             card.style.zIndex = cards.length - i;
-//         });
-//     }
-
-//     applyStack();
-
-//     function rotateStack() {
-//         const first = cards.shift();
-//         cards.push(first);
-//         applyStack();
-//     }
-
-//     stack.addEventListener("click", rotateStack);
-// }
-
-
 export function fluidStack() {
     const stack = document.querySelector(".stack--block");
     const cards = Array.from(document.querySelectorAll(".stack--item"));
