@@ -47,3 +47,52 @@
     transform: translate(-30%, -45%) rotate(5deg);
     z-index: 5;
 } */
+
+/* .spread--card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 1; */
+
+/* Initial stacked state */
+/* transform: translate(-50%, -50%) translate3d(0, 0, 0) rotateZ(0) rotateX(0); */
+
+/* Hardware-accelerated transition */
+/* transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.6s ease-out; */
+/* will-change: transform, opacity; */
+/* } */
+
+/* Final state applied when JS adds the class to the container
+.is-spread .spread--card {
+    opacity: 1;
+    transform:
+        translate(-50%, -50%) translate3d(var(--final-x), var(--final-y), 0) rotateZ(var(--final-rotZ)) rotateX(var(--final-rotX));
+} */
+
+
+.spread--card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+
+    /* Start specifically at the Top-Left coordinate provided by JS */
+    transform:
+        translate(-50%, -50%) translate3d(var(--start-x), var(--start-y), 0) rotateZ(0deg) rotateX(0deg);
+
+    /* Slow out, fast in easing (cubic-bezier) makes it feel 
+       like they are being "flicked" from the corner.
+    */
+    transition:
+        transform 0.9s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.4s ease-out;
+
+    will-change: transform, opacity;
+}
+
+/* Spread state */
+.is-spread .spread--card {
+    opacity: 1;
+    transform:
+        translate(-50%, -50%) translate3d(var(--final-x), var(--final-y), 0) rotateZ(var(--final-rotZ)) rotateX(var(--final-rotX));
+}
