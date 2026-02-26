@@ -44,3 +44,30 @@ a {
     align-items: center;
     padding-block: var(--section-padding-clamp120to60);
 }
+
+.section--heading_block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 6px;
+}
+
+.section--heading {
+    font-size: var(--font-clamp72to44);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: var(--heading-kern);
+}
+
+.section--subheading {
+    font-size: var(--font-clamp16to14);
+    color: var(--text-sec-dark);
+}
+
+.section--body {
+    inline-size: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

@@ -1,0 +1,49 @@
+.spread--cards_section {
+    gap: 36px;
+}
+
+.spread--cards_wrapper {
+    inline-size: 100%;
+    max-inline-size: 1120px;
+}
+
+.spread--cards_cntnr {
+    inline-size: 100%;
+    block-size: 100vh;
+    background: var(--off-white);
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.spread--card {
+    position: absolute;
+    /* inset: 0; */
+    block-size: 320px;
+    inline-size: 280px;
+    background: rgb(22, 22, 22);
+    border: 1px solid rgb(56, 56, 56);
+    border-radius: 8px;
+
+    top: 50%;
+    left: 50%;
+
+    transform-origin: center bottom;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+/* .sc-one {
+    transform: translate(-50%, -50%);
+    z-index: 4;
+}
+
+.sc-two {
+    transform: translate(-70%, -45%) rotate(-5deg);
+    z-index: 3;
+}
+
+.sc-three {
+    transform: translate(-30%, -45%) rotate(5deg);
+    z-index: 5;
+} */
